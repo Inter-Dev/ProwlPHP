@@ -1,5 +1,5 @@
 {
-    "name": "xenji/ProwlPHP",
+    "name": "inter-dev/ProwlPHP",
     "type": "library",
     "description": "PHP library to access the webserives of Prowl (http://www.prowlapp.com/)",
     "keywords": ["api","webservices"],
