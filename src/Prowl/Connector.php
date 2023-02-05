@@ -258,12 +258,12 @@ namespace Prowl {
 				$aParams['url'] = $oMessage->getUrl();
 			}
 
-			//array_map(create_function('$sAryVal', 'return str_replace("\\n","\n", $sAryVal);'), $aParams);
-			function array_map_recursive(callable $func, array $array) {
-		                return filter_var($array, \FILTER_CALLBACK, ['options' => $func]);
-		        }
-
-            		$aParams = array_map_recursive('trim', $aParams);
+			array_walk_recursive($aParams, function(&$val) {
+				if ($val !== null) {
+				    $val = str_replace("\\n","\n", $val);
+				}
+				return $val;
+			});
 			
 			$sContextUrl = $this->sPushEndpoint;
 
